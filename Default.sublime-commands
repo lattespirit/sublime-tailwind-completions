@@ -1,0 +1,10 @@
+[
+  {
+    "caption": "Enable Tailwind Auto Completion",
+    "command": "enable_tailwind_auto_completion"
+  },
+  {
+    "caption": "Disable Tailwind Auto Completion",
+    "command": "disable_tailwind_auto_completion"
+  }
+]

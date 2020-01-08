@@ -9,8 +9,13 @@ class TailwindAutoComplete(sublime_plugin.ViewEventListener):
         if settings.has('tailwind_completion_scopes'):
             custom_scopes = settings.get('tailwind_completion_scopes')
 
+
         if self.view.scope_name(self.view.sel()[-1].b) in allowed_scopes() + custom_scopes:
-            return completions()
+            if settings.has('tailwind_completion_enabled'):
+                is_enabled = settings.get('tailwind_completion_enabled')
+                if is_enabled:
+                    return completions()
+                return []
 
 def allowed_scopes():
     return [
@@ -38,7 +43,7 @@ def allowed_scopes():
 
 def completions():
     return [
-                ["container", "container"],
+        ["container", "container"],
         ["sr-only", "sr-only"],
         ["not-sr-only", "not-sr-only"],
         ["focus:sr-only", "focus:sr-only"],
